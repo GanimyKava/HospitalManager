@@ -11,14 +11,43 @@ A comprehensive Spring Boot-based application designed to streamline hospital op
 
 
 
-## Build and Run
-* Tip: To build and run the application, ensure you have Java 17+ and Maven installed.
+## Tech Stack & Tools
+- **Java 17**
+- **Spring Boot 3.2.2**
+- **MySQL 8.0**
+- **Docker & Docker Compose**
+- **Maven** (for local development)
 
-Database Setup: Update the credentials in 
-src/main/resources/application.properties
- to match your local MySQL configuration.
-Build: Run mvn clean install in the project root.
-Run: Use mvn spring-boot:run or run 
-HospitalManagerApplication.java
- from your IDE.
-The API will be available at http://localhost:8080/api/.
+## Build and Run with Docker Compose
+This project is containerized for easy deployment. You do not need to install Java or Maven on your machine to run the application if you use Docker.
+
+### Prerequisites
+- [Docker](https://www.docker.com/get-started) installed and running.
+- [Docker Compose](https://docs.docker.com/compose/install/) installed.
+
+### Steps
+1.  **Clone the repository**:
+    ```bash
+    git clone <repository_url>
+    cd HospitalManager
+    ```
+
+2.  **Build and Run**:
+    Run the following command in the project root to build the application image and start the database and application containers:
+    ```bash
+    docker compose up --build
+    OR
+    docker-compose up --build
+    ```
+
+3.  **Access the Application**:
+    - The API will be available at: `http://localhost:8080/api/`
+    - The database is accessible at `localhost:3307` (mapped from container port 3306).
+
+4.  **Stop the Application**:
+    To stop the containers, press `Ctrl+C` or run:
+    ```bash
+    docker compose down 
+    OR
+    docker-compose down
+    ```
